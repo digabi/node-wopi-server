@@ -58,7 +58,7 @@ export async function checkFileInfo(req: Request, res: Response, next: NextFunct
   }
 
   const editUrl = actionUrls?.find((x: string[]) => x[0] === 'edit')[1];
-  const viewUrl = actionUrls?.find((x: string[]) => x[0] === 'view')[1];
+  const viewUrl = editUrl || actionUrls?.find((x: string[]) => x[0] === 'view')[1];
   const hostEditUrl = `${editUrl}${editUrl?.endsWith('?') ? '' : '&'}${query}`;
   const hostViewUrl = `${viewUrl}${viewUrl?.endsWith('?') ? '' : '&'}${query}`;
   let isReadOnly = false;
