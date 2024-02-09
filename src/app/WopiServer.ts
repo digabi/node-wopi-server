@@ -9,7 +9,8 @@ export default class WopiServer {
   app: any;
 
   constructor(port?: number) {
-    this.port = port ?? 3000;
+    const { PORT: portFromConfig } = process.env;
+    this.port = port ?? parseInt(portFromConfig!);
     this.app = express();
 
     this.app.use(getRawBody);
