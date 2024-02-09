@@ -12,6 +12,7 @@ export async function getWopiMethods(): Promise<any> {
     const hostUrl = new URL(officeOnlineServer);
     const options = {
       host: hostUrl.hostname,
+      port: hostUrl.port,
       path: '/hosting/discovery',
     };
 
